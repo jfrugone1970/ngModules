@@ -5,7 +5,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: '404'
+    component: NotFoundComponent
   },
   {
     path: '404',
