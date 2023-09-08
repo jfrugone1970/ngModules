@@ -1,5 +1,8 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { NoPreloading, PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { PreloadSelectedModulesList } from './preloading-Strategy/opt-in-preloading-strategy';
+import { NetworkAwarePreloadStrategy } from './preloading-Strategy/network-gware-preloading-strategy';
+import { OnDemandRealoadingStrategy } from './preloading-Strategy/on-demand-preloading-strategies';
 
 const routes: Routes = [
   {
@@ -13,12 +16,18 @@ const routes: Routes = [
   },
   {
     path: 'login',
-    loadChildren: () => import('./modules/pages/login/login.module').then(m => m.LoginModule)
+    loadChildren: () => import('./modules/pages/login/login.module').then(m => m.LoginModule),
+    data: {
+      preload: true
+    }
 
   },
   {
     path: 'profile',
-    loadChildren: () => import('./modules/pages/profile/profile.module').then(m => m.ProfileModule)
+    loadChildren: () => import('./modules/pages/profile/profile.module').then(m => m.ProfileModule),
+    data: {
+      preload: true
+    }
   },
   {
     path: '**',
@@ -27,7 +36,21 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes,
+    {
+      // *1 Precarga todos los modulos de la ruta
+      //preloadingStrategy: PreloadAllModules
+      // *2 Precarga solo los modulos indicados de forma perezosa
+      //preloadingStrategy: NoPreloading
+      // *3 Estrategia personalizada de precarga
+      // preloadingStrategy: PreloadSelectedModulesList
+      // *4 Estrategia personalizada: Precarga por conexion
+      // preloadingStrategy: NetworkAwarePreloadStrategy
+      // *5 Estrategia personalizada por evento controlada por evento de servicio
+      preloadingStrategy: OnDemandRealoadingStrategy
+
+    }
+  )],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

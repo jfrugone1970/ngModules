@@ -11,6 +11,9 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
+import { PreloadSelectedModulesList } from './preloading-Strategy/opt-in-preloading-strategy';
+import { NetworkAwarePreloadStrategy } from './preloading-Strategy/network-gware-preloading-strategy';
+import { OnDemandRealoadingStrategy } from './preloading-Strategy/on-demand-preloading-strategies';
 
 @NgModule({
   declarations: [
@@ -30,7 +33,11 @@ import { MatListModule } from '@angular/material/list';
     MatListModule
 
   ],
-  providers: [],
+  providers: [
+    PreloadSelectedModulesList,
+    NetworkAwarePreloadStrategy,
+    OnDemandRealoadingStrategy
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

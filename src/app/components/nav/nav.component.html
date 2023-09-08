@@ -20,8 +20,12 @@
         *ngIf="isHandset$ | async">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <span>ngModules</span>
+      <span>Carga Peresoza y sistema de precarga de Modulos en Angular</span>
+      <button (click)="cargarModulo('profile')">Precargar Profile</button>
+      <button (click)="cargarModulo('login')">Precargar Login</button>
+      <button (click)="cargarTodoslosModulos()">Cargar Modulos</button>
     </mat-toolbar>
+
     <!-- Add Content Here -->
     <router-outlet></router-outlet>
   </mat-sidenav-content>
