@@ -11,7 +11,7 @@ export class PreloadSelectedModulesList implements PreloadingStrategy {
    * @param load el callback que carga el modulo
    * @returns ejecuta un callback o devuelve un modulo
    */
-  preload(route: Route, load: Function): Observable<any> {
+  preload(route: Route, load: () => Observable<any>): Observable<any> {
     return route.data && route.data['preload'] ? load() : of(null);
   }
 }
