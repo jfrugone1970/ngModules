@@ -20,7 +20,9 @@ export class NetworkAwarePreloadStrategy implements PreloadingStrategy {
 
   hasGoodConnection(): boolean {
     const conn = navigator.connection;
+    // En caso de que tengamos condicion
     if (conn) {
+      // Si el usuario tiene habilitado la reserva de datos
       if (conn.saveData) {
         return false; // save data mode is enabled, so dont preload
       }

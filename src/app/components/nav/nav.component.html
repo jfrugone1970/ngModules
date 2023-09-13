@@ -20,10 +20,10 @@
         *ngIf="isHandset$ | async">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <span>Carga Peresoza y sistema de precarga de Modulos en Angular</span>
-      <button (click)="cargarModulo('profile')">Precargar Profile</button>
-      <button (click)="cargarModulo('login')">Precargar Login</button>
-      <button (click)="cargarTodoslosModulos()">Cargar Modulos</button>
+      <span>Carga Perezosa y sistema de precarga de Modulos en Angular</span>
+      <button mat-button color="warning" (click)="cargarModulo('profile')">Precargar Profile</button>
+      <button mat-button color="warning" (click)="cargarModulo('login')">Precargar Login</button>
+      <button mat-button color="warning" (click)="cargarTodoslosModulos()">Cargar Modulos</button>
     </mat-toolbar>
 
     <!-- Add Content Here -->

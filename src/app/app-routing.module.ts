@@ -45,7 +45,7 @@ const routes: Routes = [
       // *3 Estrategia personalizada de precarga
       // preloadingStrategy: PreloadSelectedModulesList
       // *4 Estrategia personalizada: Precarga por conexion
-      // preloadingStrategy: NetworkAwarePreloadStrategy
+      //preloadingStrategy: NetworkAwarePreloadStrategy
       // *5 Estrategia personalizada por evento controlada por evento de servicio
       preloadingStrategy: OnDemandRealoadingStrategy
 

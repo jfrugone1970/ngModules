@@ -32,7 +32,7 @@ export class OnDemandRealoadingStrategy implements PreloadingStrategy {
 
         const precargar: boolean = this.decidirsiCargar(route, preloadingOptions);
 
-        console.log(`${precargar ? '': "NO"}`)
+        console.log(`${precargar ? '': "NO"} se precarga el modulo de la ruta ${route.path}`);
 
         //devolvemos la ejecucion del call bak o nada
         return precargar ? load(): EMPTY
